@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Careers</title>
+    <link rel="stylesheet" href="main.css" />
+    <script src="main.js" defer></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="assets/images/logos/icon.webp" />
+  </head>
+  <body class="about">
+    <header>
+      <a class="logo" href="/">
+        <img
+          src="assets/images/logos/logo.webp"
+          alt="Main Logo"
+          class="header-logo"
+        />
+      </a>
+      <nav>
+        <ul>
+          <li class="dropdown">
+            <a>Company</a>
+            <ul class="dropdown-menu">
+              <li><a href="About_TNJ-Media.html">About</a></li>
+              <li><a href="Board-Directors.html">Board of Directors</a></li>
+              <li><a href="Investor-Centre.html">Investor Centre</a></li>
+              <li><a href="Newsroom.html">Newsroom</a></li>
+              <li><a href="#">BEE Scoreboard</a></li>
+              <li><a href="Media-Kit.html">Media Kit</a></li>
+              <li><a href="Privacy_Policy.html">Privacy Policy</a></li>
+              <li><a href="Governance.html">Governance</a></li>
+            </ul>
+          </li>
+          <li><a href="Services.html">Services</a></li>
+          <li><a href="Advertise.html">Advertise</a></li>
+          <li><a href="Careers.html">Careers</a></li>
+          <li><a href="TNJ-Chronicles.html">TNJ Chronicles</a></li>
+        </ul>
+        <span><button>Contact</button></span>
+      </nav>
+      <h1 class="menu-toggle" id="menuToggle">☰</h1>
+      <div class="mobile-menu" id="mobileMenu">
+        <ul>
+          <li id="dropdown">
+            <h3>
+              Company
+              <svg
+                width="24px"
+                height="24px"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </h3>
+            <ul class="dropdown-menu">
+              <li><a href="About_TNJ-Media.html">&mdash; &nbsp; About</a></li>
+              <li>
+                <a href="Board-Directors.html"
+                  >&mdash; &nbsp; Board of Directors</a
+                >
+              </li>
+              <li>
+                <a href="Investor-Centre.html"
+                  >&mdash; &nbsp; Investor Centre</a
+                >
+              </li>
+              <li><a href="Newsroom.html">&mdash; &nbsp; Newsroom</a></li>
+              <li><a href="#">&mdash; &nbsp; BEE Scoreboard</a></li>
+              <li><a href="Media-Kit.html">&mdash; &nbsp; Media Kit</a></li>
+              <li>
+                <a href="Privacy_Policy.html">&mdash; &nbsp; Privacy Policy</a>
+              </li>
+              <li><a href="Governance.html">&mdash; &nbsp; Governance</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="Services.html"><h3>Services</h3></a>
+          </li>
+          <li>
+            <a href="Advertise.html"><h3>Advertise</h3></a>
+          </li>
+          <li>
+            <a href="Careers.html"><h3>Careers</h3></a>
+          </li>
+          <li>
+            <a href="TNJ-Chronicles.html"><h3>TNJ Chronicles</h3></a>
+          </li>
+        </ul>
+        <button>Contact</button>
+      </div>
+    </header>
+    <main>
+      <div class="about-us">
+        <section class="Careers">
+          <div class="careers-container">
+            <h1>A CALL FOR INTERNS</h1>
+            <p class="description">
+              As we are vastly expanding, our roles are expanding too. We are
+              excited to take on fresh, young people who are eager to help our
+              consortium grow whilst dedicating time in our work and clients.
+            </p>
+            <p class="subtitle">Internship Opportunities For</p>
+            <div class="directors-container" id="team">
+              <div id="job-list">
+                <!-- Jobs will be dynamically inserted here -->
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer>
+      <div class="footer-logo">
+        <p>© Copyright - TNJ Media South Africa</p>
+      </div>
+      <div class="footer-socials">
+        <p>
+          <a href="https://www.instagram.com/tnjmediasa/" target="_blank">
+            <img src="assets/images/logos/insta.webp" alt="instagram" />
+          </a>
+          <a href="mailto:mail@tnj-media.com" target="_blank">
+            <img src="assets/images/logos/mail.webp" alt="mail" />
+          </a>
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      const jobs = [
+        { title: "Drivers", link: "https://forms.gle/example1" },
+        { title: "Creatives", link: "https://forms.gle/example2" },
+        { title: "Public Relations", link: "https://forms.gle/example3" },
+        { title: "Tech Developers", link: "https://forms.gle/example4" },
+      ];
+
+      const jobList = document.getElementById("job-list");
+
+      jobs.forEach((job) => {
+        let jobItem = document.createElement("div");
+        jobItem.classList.add("job-item");
+        jobItem.innerHTML = `<h3>${job.title}</h3><a href="${job.link}" target="_blank">Apply Now</a>`;
+        jobList.appendChild(jobItem);
+      });
+    </script>
+  </body>
+
+  <script src="script.js"></script>
+</html>

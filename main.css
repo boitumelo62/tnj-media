@@ -1,0 +1,857 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: white;
+  color: #333;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  height: 100vh;
+}
+
+body.home {
+  background-image: url("assets/images/bg/sl-bg.webp");
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+header {
+  padding: 0 100px;
+  background-color: white;
+  color: #444;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 15vh;
+  box-shadow: 0 0 10px #4444449d;
+}
+
+.logo {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+.header-logo {
+  height: 100%;
+  cursor: pointer;
+  padding: 2.5vh 0;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  z-index: 2;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+nav ul li.dropdown:hover ul.dropdown-menu {
+  display: flex;
+}
+
+nav ul li.dropdown ul.dropdown-menu {
+  display: none;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 60%;
+  left: auto;
+  margin: 0 0 0 -1.8rem;
+  padding: 3rem 1.8rem 1.8rem 1.8rem;
+  background-color: white;
+  z-index: 0;
+  gap: 2rem;
+  border-radius: 8px 0 0 8px;
+
+  :hover {
+    display: flex;
+    color: #1a3b47;
+    text-decoration: underline;
+  }
+}
+
+nav a {
+  text-decoration: none;
+  color: #444;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #1a3b47;
+    text-decoration: underline;
+  }
+}
+
+nav button {
+  background-color: #1a3b47;
+  position: relative;
+  color: white;
+  padding: 15px 25px;
+  border: #1a3b47 1px solid;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+  z-index: 99;
+
+  &:hover {
+    background-color: white;
+    color: #1a3b47;
+    border: #1a3b47 1px solid;
+  }
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  background-color: #fff;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  top: 10vh;
+  z-index: 99;
+  width: 100%;
+  padding: 30px;
+  border: #1a3b47 2px solid;
+  border-radius: 0 0 10px 10px;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+
+    li {
+      &.dropdown#open {
+        & ul {
+          display: block;
+        }
+      }
+      a {
+        text-decoration: none;
+        color: #444;
+        font-size: 1.2rem;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #1a3b47;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    & h3 {
+      display: flex;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      justify-content: baseline;
+    }
+
+    & ul {
+      display: none;
+      padding: 0 10px 10px 10px;
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+      align-self: center;
+    }
+  }
+
+  button {
+    background-color: #1a3b47;
+    color: white;
+    padding: 15px 25px;
+    border: #1a3b47 1px solid;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+    z-index: 2;
+    margin-top: 10px;
+
+    &:hover {
+      background-color: white;
+      color: #1a3b47;
+      border: #1a3b47 1px solid;
+    }
+  }
+}
+
+.home main {
+  background-color: #0000008c;
+  color: #fff;
+  padding: 0 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+}
+
+.home main .hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  height: 100%;
+
+  & img {
+    max-width: 50px;
+    filter: brightness(100);
+  }
+
+  & .hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    & h1 {
+      font-size: 2.4rem;
+    }
+
+    & p {
+      font-size: 1.2rem;
+      width: 60%;
+
+      & a {
+        text-decoration: none;
+        font-style: italic;
+        color: #fff;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #1a3b47;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  padding: 0 100px;
+  background-color: white;
+  color: #444;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  width: 100vw;
+  box-shadow: 0 0 10px #4444449d;
+}
+
+div.footer-logo {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  gap: 1rem;
+}
+
+img.footer-logo {
+  height: 100%;
+  cursor: pointer;
+  padding: 2.5vh 0;
+}
+
+div.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 100%;
+}
+
+div.footer-socials p {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: 1.5rem;
+}
+
+div.footer-socials p a {
+  display: flex;
+  text-decoration: none;
+  height: 100%;
+}
+
+div.footer-socials p a img {
+  height: 100%;
+  cursor: pointer;
+  padding: 3.5vh 0;
+}
+
+/* ABOUT US - TNJ MEDIA */
+
+.about-us {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.about-us section {
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+}
+
+.about-us h1 {
+  color: #1a3b47;
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.about-us p.description {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.vision-mission-values {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+
+  & p {
+    background-color: #1a3b47;
+    color: white;
+    width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    align-items: left;
+
+    & strong {
+      font-size: 18px;
+    }
+  }
+}
+
+.about-us h2 {
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.about-us ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about-us ul li {
+  padding: 8px 0;
+}
+
+.about-us a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.about-us a:hover {
+  text-decoration: underline;
+}
+
+.vulnerability-disclosure {
+  display: flex;
+}
+
+.bee-scoreboard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.vulnerability-disclosure h2,
+.bee-scoreboard h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.bee-scoreboard p {
+  margin: 10px 0;
+  font-size: 1rem;
+}
+
+em.underline {
+  display: block;
+  background-color: #1a3b47;
+  height: 1px;
+  width: 20%;
+  margin-top: 10px;
+}
+
+.vulnerability-disclosure div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.vulnerability-disclosure p {
+  font-size: 16px;
+
+  & strong {
+    font-size: 18px;
+  }
+}
+
+.vulnerability-disclosure h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.vulnerability-disclosure a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+/* BOARD OF DIRECTORS - TNJ MEDIA */
+
+.board-of-directors {
+  width: 80%;
+  margin: auto;
+}
+
+.directors-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.board-of-directors h2 {
+  color: #1a3b47;
+  font-size: 32px;
+  margin: 40px 0 20px 0;
+  text-align: center;
+
+  &.team {
+    margin: 20px 0;
+  }
+}
+
+.directors {
+  width: 80%;
+  color: #444;
+  font-size: 16px;
+  margin: 20px;
+  text-align: center;
+  margin: 20px auto;
+}
+
+.director-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    & h3 {
+      color: #1a3b47;
+    }
+
+    & p {
+      color: #000;
+    }
+  }
+}
+
+.director-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  object-fit: cover;
+  max-width: 150px;
+  max-height: 150px;
+}
+
+.director-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.director-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.director-card .bio {
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: 15px;
+  transition: color 0.3s ease;
+}
+
+/* INVESTOR CENTRE - TNJ MEDIA */
+
+.investor-centre {
+  width: 80%;
+  margin: auto;
+}
+
+.investor-centre h1 {
+  color: #1a3b47;
+  font-size: 32px;
+  margin: 40px 0 20px 0;
+  text-align: center;
+}
+
+.investor-centre p.intro {
+  font-size: 16px;
+  margin: 20px 0;
+  text-align: center;
+  color: #444;
+}
+
+.investor-centre .highlights {
+  padding: 20px;
+  margin: 20px 0;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 20px;
+}
+
+.investor-centre .highlights h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.investor-centre .highlights ul {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  list-style-type: none;
+  font-size: 16px;
+  text-align: center;
+}
+
+.investor-centre .highlights li {
+  width: 100%;
+  background-color: #1a3b47;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.investor-centre .highlights li strong {
+  display: block;
+  font-size: 18px;
+}
+
+.investor-centre .investor-resources a,
+.investor-centre .contact-section a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.investor-centre .investor-resources a:hover,
+.investor-centre .contact-section a:hover {
+  text-decoration: underline;
+}
+
+.investor-centre .investor-resources,
+.investor-centre .contact-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  margin: 20px 0;
+  justify-content: center;
+  margin: 20px;
+}
+
+.investor-centre .investor-resources h2,
+.investor-centre .contact-section h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.investor-centre .investor-resources p,
+.investor-centre .contact-section p {
+  margin: 10px 0;
+  font-size: 1rem;
+}
+
+/* Careers */
+
+.careers-container {
+  padding: 0px 20px;
+}
+
+.subtitle {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#job-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.job-item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.job-item h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.job-item a {
+  display: block;
+  margin-top: 10px;
+  background: #1a3b47;
+  border: #1a3b47 1px solid;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.job-item a:hover {
+  background: #fff;
+  color: #1a3b47;
+  text-decoration: none;
+}
+
+.services,
+.advertise-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+
+  & div {
+    background-color: #1a3b47;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    aspect-ratio: 1.2/1;
+    width: 100%;
+    max-width: 300px;
+    height: 350px;
+    gap: 20px;
+    padding: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+
+    & h2 {
+      color: #fff;
+    }
+
+    & span {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+
+      &#image {
+        background-image: url("https://picsum.photos/300/300");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100%;
+
+        &.Transit {
+          background-image: url("/assets/images/bg/transit-bg.webp");
+        }
+
+        &.Print-Media {
+          background-image: url("/assets/images/bg/printmedia-bg.webp");
+        }
+
+        &.Print-Magazine {
+          background-image: url("/assets/images/bg/printmagazine-bg.webp");
+        }
+
+        &.Digital-Magazine {
+          background-image: url("/assets/images/bg/digitalmagazine-bg.webp");
+          background-position: left;
+        }
+
+        &.Street {
+          background-image: url("/assets/images/bg/street-bg.webp");
+        }
+
+        &.Digital-Billboards {
+          background-image: url("/assets/images/bg/digitalbillboards-bg.webp");
+        }
+
+        &.Digital-Website {
+          background-image: url("/assets/images/bg/digitalwebsite-bg.webp");
+        }
+
+        &.News-Room {
+          background-image: url("/assets/images/bg/News-Room-bg.webp");
+        }
+
+        &.Outdoor,
+        &.OOH {
+          background-image: url("/assets/images/bg/outdoor-bg.webp");
+        }
+
+        &.Media {
+          background-image: url("/assets/images/bg/media-bg.webp");
+        }
+
+        &.Broadcasting {
+          background-image: url("/assets/images/bg/broadcasting-bg.webp");
+        }
+
+        &.Digital {
+          background-image: url("/assets/images/bg/digital-bg.webp");
+        }
+
+        &.Books {
+          background-image: url("/assets/images/bg/book-bg.webp");
+        }
+      }
+
+      & img {
+        width: 100%;
+      }
+    }
+
+    &:hover {
+      transform: scale(1.03);
+
+      & ul {
+        display: flex;
+      }
+    }
+
+    & ul {
+      height: auto;
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+    }
+  }
+}
+
+/* Newsroom */
+
+.press-release-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: 20px 0;
+}
+
+section.press-releases p.press-release-link {
+  margin: 10px 0;
+  font-size: 1.2rem;
+}
+
+/* Media Queries */
+
+@media (max-width: 768px) {
+  header {
+    padding: 0 30px;
+    height: 10vh;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .header-logo {
+    padding: 2vh 0;
+  }
+
+  .home main {
+    padding: 0 30px;
+    height: 80vh;
+  }
+
+  .home main .hero {
+    & .hero-content {
+      & p {
+        width: 100%;
+      }
+    }
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  footer {
+    padding: 0 30px;
+  }
+
+  div.footer-logo {
+    width: 50%;
+  }
+
+  .about-us {
+    width: 90%;
+  }
+
+  .investor-centre {
+    width: 90%;
+  }
+
+  .investor-centre .highlights ul {
+    flex-direction: column;
+  }
+
+  .investor-centre p.intro {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .services,
+  .advertise-list {
+    & div {
+      max-width: 350px;
+      height: 300px;
+    }
+  }
+}
