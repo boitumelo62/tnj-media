@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TNJ Media South Africa — Multinational Media Consortium</title>
+    <title>Contact Us | TNJ Media</title>
     <link rel="stylesheet" href="main.css" />
     <script src="main.js" defer></script>
     <link
@@ -12,7 +12,7 @@
     />
     <link rel="icon" type="image/png" href="assets/images/logos/icon.webp" />
   </head>
-  <body class="home">
+  <body>
     <header>
       <a class="logo" href="/">
         <img
@@ -102,24 +102,27 @@
       </div>
     </header>
     <main>
-      <div class="hero">
-        <img
-          src="assets/images/logos/logo.webp"
-          alt="TNJ Media"
-          class="hero-img"
-        />
-        <div class="hero-content">
-          <h1>Multinational Media Consortium</h1>
-          <p>
-            TNJ-Media South African is a Multinational Consortium. We Dedicate
-            our Time, Skills, and Services to delivering Innovative and
-            Sustainable Marketing and Media Solutions Globally.
-            <br />
-            <br />
-            Learn more <a href="About_TNJ-Media.html">about us</a> and our
-            <a href="#">services</a>.
-          </p>
-        </div>
+      <div class="contact-container">
+        <h1>Contact Us</h1>
+        <form
+          action="mailto:info@tnj-media.com"
+          method="post"
+          enctype="text/plain"
+        >
+          <label for="name">Name</label>
+          <input type="text" id="name" name="Name" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="Email" required />
+
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="Subject" />
+
+          <label for="message">Message</label>
+          <textarea id="message" name="Message" rows="5" required></textarea>
+
+          <button type="submit">Send</button>
+        </form>
       </div>
     </main>
     <footer>
@@ -138,6 +141,4 @@
       </div>
     </footer>
   </body>
-
-  <script src="script.js"></script>
 </html>
