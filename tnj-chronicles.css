@@ -349,7 +349,8 @@ section.spotlight {
 /*Catalogue*/
 
 .magazines,
-.bolg {
+.bolg,
+.news {
   width: 100%;
   padding: 20px 0;
   display: flex;
@@ -359,7 +360,8 @@ section.spotlight {
 }
 
 .magazines h1,
-.bolg h1 {
+.bolg h1,
+.news h1 {
   color: #000;
   text-transform: uppercase;
   font-size: 30px;
@@ -471,14 +473,16 @@ section.spotlight {
   font-weight: 300;
 }
 
-.bolg div.card-container {
+.bolg div.card-container,
+.news div.card-container {
   display: flex;
   width: 100%;
   gap: 20px;
   overflow: scroll;
 }
 
-.bolg div.card-container div.card {
+.bolg div.card-container div.card,
+.news div.card-container div.card {
   display: flex;
   flex-direction: column;
   width: 400px;
@@ -488,7 +492,8 @@ section.spotlight {
   padding-bottom: 20px;
 }
 
-.bolg div.card-container div.card div.card-image {
+.bolg div.card-container div.card div.card-image,
+.news div.card-container div.card div.card-image {
   width: 400px;
   height: auto;
   max-height: 300px;
@@ -496,13 +501,15 @@ section.spotlight {
   overflow: hidden;
 }
 
-.bolg div.card-container div.card div.card-image img {
+.bolg div.card-container div.card div.card-image img,
+.news div.card-container div.card div.card-image img {
   width: 100%;
   height: auto;
   object-fit: cover;
 }
 
-.bolg div.card-container div.card div.card-text {
+.bolg div.card-container div.card div.card-text,
+.news div.card-container div.card div.card-text {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -857,7 +864,8 @@ main.about-container ul {
   }
 
   .magazines h1,
-  .bolg h1 {
+  .bolg h1,
+  .news h1 {
     padding: 0 0 20px 0;
   }
 
