@@ -76,7 +76,7 @@ header nav div {
 header nav div a {
   & img {
     height: 20px;
-    width: 100%;
+    width: auto;
     display: none;
 
     &.active {
