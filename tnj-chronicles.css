@@ -398,7 +398,6 @@ section.spotlight {
 }
 
 .magazines div.card-container div.card div.card-image {
-  background-image: url(assets/images/magazine/nov_2024_cover.png);
   background-size: 100% auto;
   background-position: top center;
   background-repeat: no-repeat;
@@ -416,6 +415,14 @@ section.spotlight {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+  }
+
+  &#Nov2024 {
+    background-image: url(assets/images/magazine/nov_2024_cover.png);
+  }
+
+  &#JuneJuly2025 {
+    background-image: url(assets/images/magazine/JuneJuly2025.png);
   }
 }
 
