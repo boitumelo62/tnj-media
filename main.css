@@ -862,6 +862,20 @@ section.press-releases {
   }
 }
 
+.newsroom-video {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+
+  & iframe {
+    width: 50vw;
+    aspect-ratio: 16/9;
+    max-width: 600px;
+    height: auto;
+    border-radius: 10px;
+  }
+}
+
 /* Contact */
 
 .contact-container {
@@ -979,5 +993,11 @@ section.press-releases {
 
   .contact-container {
     max-width: 300px;
+  }
+
+  .newsroom-video {
+    & iframe {
+      width: 75vw;
+    }
   }
 }
