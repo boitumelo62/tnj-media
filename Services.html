@@ -1,18 +1,417 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Services</title>
+    <title>Portfolio - TNJ Media</title>
     <link rel="stylesheet" href="main.css" />
-    <script src="main.js" defer></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
     <link rel="icon" type="image/png" href="assets/images/logos/icon.webp" />
+    <style>
+      body.portfolio {
+        background-color: #f8f9fa;
+      }
+
+      main {
+        background-color: #f8f9fa;
+        padding: 60px 0;
+      }
+
+      .portfolio-container {
+        width: 90%;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .portfolio-hero {
+        text-align: center;
+        margin-bottom: 80px;
+        padding: 40px 20px;
+      }
+
+      .portfolio-hero h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: #1a3b47;
+        margin-bottom: 15px;
+        letter-spacing: -1px;
+      }
+
+      .portfolio-hero p {
+        font-size: 1.3rem;
+        color: #666;
+        font-weight: 300;
+        max-width: 700px;
+        margin: 0 auto 30px;
+      }
+
+      .portfolio-stats {
+        display: flex;
+        justify-content: center;
+        gap: 80px;
+        margin-top: 40px;
+        flex-wrap: wrap;
+      }
+
+      .stat {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #00a8cc;
+        line-height: 1;
+      }
+
+      .stat-label {
+        font-size: 0.95rem;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 10px;
+        font-weight: 500;
+      }
+
+      .portfolio-filters {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 60px;
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        padding: 12px 28px;
+        background-color: white;
+        border: 2px solid #1a3b47;
+        color: #1a3b47;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        background-color: #1a3b47;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(26, 59, 71, 0.2);
+      }
+
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 50px;
+        margin-top: 80px;
+      }
+
+      .section-number {
+        font-size: 4rem;
+        font-weight: 900;
+        color: #00a8cc;
+        opacity: 0.3;
+        line-height: 0.8;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #1a3b47;
+        margin: 0;
+        margin-bottom: 8px;
+      }
+
+      .section-title p {
+        color: #999;
+        font-size: 1rem;
+        margin: 0;
+      }
+
+      .divider {
+        height: 3px;
+        width: 60px;
+        background: linear-gradient(to right, #00a8cc, transparent);
+        margin-bottom: 20px;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-bottom: 60px;
+      }
+
+      .services-grid .service-card {
+        background: white;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        border-left: 4px solid #00a8cc;
+      }
+
+      .services-grid .service-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        border-left-color: #1a3b47;
+      }
+
+      .service-icon {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+      }
+
+      .service-card h3 {
+        font-size: 1.4rem;
+        color: #1a3b47;
+        margin: 15px 0;
+        font-weight: 700;
+      }
+
+      .service-card p {
+        color: #666;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .service-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .service-list li {
+        padding: 8px 0;
+        color: #555;
+        font-size: 0.9rem;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .service-list li:before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: #00a8cc;
+        font-weight: bold;
+      }
+
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 25px;
+        margin-bottom: 60px;
+      }
+
+      .portfolio-item {
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .portfolio-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      }
+
+      .portfolio-image {
+        width: 100%;
+        height: 250px;
+        background: linear-gradient(135deg, #00a8cc, #1a3b47);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        color: rgba(255, 255, 255, 0.2);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .portfolio-item:hover .portfolio-image {
+        background: linear-gradient(135deg, #1a3b47, #00a8cc);
+      }
+
+      .portfolio-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        color: white;
+        font-weight: 600;
+      }
+
+      .portfolio-item:hover .portfolio-overlay {
+        opacity: 1;
+      }
+
+      .portfolio-content {
+        padding: 20px;
+      }
+
+      .portfolio-tag {
+        display: inline-block;
+        background-color: #f0f0f0;
+        color: #1a3b47;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .portfolio-content h3 {
+        font-size: 1.2rem;
+        color: #1a3b47;
+        margin: 10px 0 8px 0;
+        font-weight: 700;
+      }
+
+      .portfolio-content p {
+        color: #999;
+        font-size: 0.9rem;
+        margin: 0;
+      }
+
+      .clients-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 40px;
+        margin-bottom: 60px;
+        align-items: center;
+      }
+
+      .client-item {
+        text-align: center;
+        padding: 20px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+      }
+
+      .client-item:hover {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        transform: translateY(-5px);
+      }
+
+      .client-logo {
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+
+      .client-name {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #1a3b47;
+        margin-bottom: 5px;
+      }
+
+      .client-desc {
+        font-size: 0.85rem;
+        color: #999;
+      }
+
+      .portfolio-cta {
+        background: linear-gradient(135deg, #1a3b47, #00a8cc);
+        color: white;
+        padding: 60px 40px;
+        border-radius: 12px;
+        text-align: center;
+        margin-top: 80px;
+      }
+
+      .portfolio-cta h2 {
+        font-size: 2.2rem;
+        margin-bottom: 15px;
+        font-weight: 800;
+      }
+
+      .portfolio-cta p {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        opacity: 0.95;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background-color: white;
+        color: #1a3b47;
+        padding: 15px 40px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: all 0.3s ease;
+        border: 2px solid white;
+      }
+
+      .cta-button:hover {
+        background-color: transparent;
+        color: white;
+      }
+
+      @media (max-width: 768px) {
+        .portfolio-hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .portfolio-stats {
+          gap: 40px;
+        }
+
+        .section-number {
+          font-size: 2.5rem;
+        }
+
+        .section-title h2 {
+          font-size: 1.8rem;
+        }
+
+        .services-grid,
+        .portfolio-grid,
+        .clients-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .portfolio-item {
+          margin: 0 auto;
+          min-width: 100%;
+        }
+
+        .portfolio-cta {
+          padding: 40px 20px;
+        }
+
+        .portfolio-cta h2 {
+          font-size: 1.6rem;
+        }
+      }
+    </style>
   </head>
-  <body class="about">
+  <body class="portfolio">
     <header>
       <a class="logo" href="/">
         <img
@@ -97,80 +496,358 @@
         <button><a href="Contact">Contact</a></button>
       </div>
     </header>
+
     <main>
-      <div class="about-us">
-        <section class="Services">
-          <h1>Our Services</h1>
-          <p class="subtitle">
-            Let Us Take Your Business & Brand To The Next Level!
+      <div class="portfolio-container">
+        <section class="portfolio-hero">
+          <h1>Our Portfolio</h1>
+          <p>
+            A showcase of our innovative media solutions, creative campaigns,
+            and transformative brand experiences across diverse industries.
           </p>
+          <!-- <div class="portfolio-stats">
+            <div class="stat">
+              <div class="stat-number">50+</div>
+              <div class="stat-label">Projects Delivered</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">100+</div>
+              <div class="stat-label">Happy Clients</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">6+</div>
+              <div class="stat-label">Years Industry</div>
+            </div>
+          </div>-->
+        </section>
 
-          <section class="services">
-            <div class="service-category" onclick="toggleSection('outdoor')">
+        <section>
+          <div class="section-header">
+            <div class="section-number">01</div>
+            <div class="section-title">
+              <div class="divider"></div>
+              <h2>Our Services</h2>
+              <p>
+                Comprehensive media and marketing solutions tailored to elevate
+                your brand
+              </p>
+            </div>
+          </div>
+
+          <div class="services-grid">
+            <div class="service-card">
               <span id="image" class="Outdoor"> </span>
-              <span>
-                <h2>Outdoor Billboard</h2>
-                <ul id="outdoor" class="service-list">
-                  <li>Static Billboards</li>
-                  <li>Street Poles Billboards</li>
-                  <li>Digital Billboards</li>
-                </ul>
-              </span>
+              <h3>Outdoor Advertising</h3>
+              <p>Maximize visibility with strategic billboard placements</p>
+              <ul class="service-list">
+                <li>Static Billboards</li>
+                <li>Street Poles Billboards</li>
+                <li>Digital Billboards</li>
+              </ul>
             </div>
 
-            <div class="service-category" onclick="toggleSection('media')">
+            <div class="service-card">
               <span id="image" class="Media"> </span>
-              <span>
-                <h2>Media Production</h2>
-                <ul id="media" class="service-list">
-                  <li>Professional Photography</li>
-                  <li>Professional Videography</li>
-                  <li>Site Photography</li>
-                </ul>
-              </span>
+              <h3>Media Production</h3>
+              <p>Professional content creation that tells your story</p>
+              <ul class="service-list">
+                <li>Professional Photography</li>
+                <li>Professional Videography</li>
+                <li>Site Photography</li>
+              </ul>
             </div>
 
-            <div
-              class="service-category"
-              onclick="toggleSection('broadcasting')"
-            >
+            <div class="service-card">
               <span id="image" class="Broadcasting"> </span>
-              <span>
-                <h2>Broadcasting</h2>
-                <ul id="broadcasting" class="service-list">
-                  <li>Series</li>
-                  <li>Filming</li>
-                  <li>Documentaries</li>
-                </ul>
-              </span>
+              <h3>Broadcasting</h3>
+              <p>Dynamic broadcast content and documentary production</p>
+              <ul class="service-list">
+                <li>Series Production</li>
+                <li>Filming Services</li>
+                <li>Documentaries</li>
+              </ul>
             </div>
 
-            <div class="service-category" onclick="toggleSection('digital')">
+            <div class="service-card">
               <span id="image" class="Digital"> </span>
-              <span>
-                <h2>Digital</h2>
-                <ul id="digital" class="service-list">
-                  <li>Website Development</li>
-                  <li>Social Media Digital Marketing</li>
-                  <li>TNJ Chronicles News</li>
-                  <li>TNJ Chronicles Podcast</li>
-                </ul>
-              </span>
+              <h3>Digital Solutions</h3>
+              <p>Modern digital platforms and online marketing</p>
+              <ul class="service-list">
+                <li>Website Development</li>
+                <li>Social Media Marketing</li>
+                <li>Digital News & Podcasts</li>
+              </ul>
             </div>
 
-            <div class="service-category" onclick="toggleSection('books')">
-              <span id="image" class="Books"> </span>
-              <span>
-                <h2>Books</h2>
-                <ul id="books" class="service-list">
-                  <li>(Coming Soon)</li>
-                </ul>
-              </span>
+            <div class="service-card">
+              <div class="service-icon"></div>
+              <h3>Brand Design</h3>
+              <p>Creative design that captures your brand essence</p>
+              <ul class="service-list">
+                <li>Logo Design</li>
+                <li>Brand Identity</li>
+                <li>Marketing Collateral</li>
+              </ul>
             </div>
-          </section>
+
+            <div class="service-card">
+              <span id="image" class="Books"> </span>
+              <h3>Publishing</h3>
+              <p>Professional publishing and content services</p>
+              <ul class="service-list">
+                <li>Book Publishing</li>
+                <li>Digital Publications</li>
+                <li>Print & Design</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-header">
+            <div class="section-number">02</div>
+            <div class="section-title">
+              <div class="divider"></div>
+              <h2>In-House Designs</h2>
+              <p>
+                Creative campaigns and designs showcasing our innovative
+                approach
+              </p>
+            </div>
+          </div>
+
+          <div class="portfolio-grid">
+            <div class="portfolio-item">
+              <div class="portfolio-image"></div>
+              <div class="portfolio-overlay">Happy New Year Campaign</div>
+              <div class="portfolio-content">
+                <span class="portfolio-tag">Seasonal</span>
+                <h3>Happy New Year 2024</h3>
+                <p>Modern festive design celebrating new beginnings</p>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <div class="portfolio-image"></div>
+              <div class="portfolio-overlay">Good Sendings Campaign</div>
+              <div class="portfolio-content">
+                <span class="portfolio-tag">Brand</span>
+                <h3>Good Sendings</h3>
+                <p>Community-focused campaign celebrating togetherness</p>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <div class="portfolio-image"></div>
+              <div class="portfolio-overlay">Portrait Series</div>
+              <div class="portfolio-content">
+                <span class="portfolio-tag">Design</span>
+                <h3>Human Representation</h3>
+                <p>Artistic portrait and figure design series</p>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <div class="portfolio-image"></div>
+              <div class="portfolio-overlay">Marketing Messaging</div>
+              <div class="portfolio-content">
+                <span class="portfolio-tag">Strategy</span>
+                <h3>Marketing Campaigns</h3>
+                <p>Strategic messaging and brand communication</p>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <div class="portfolio-image"></div>
+              <div class="portfolio-overlay">Content & Design</div>
+              <div class="portfolio-content">
+                <span class="portfolio-tag">Creation</span>
+                <h3>Content Curation</h3>
+                <p>Strategic content creation at its peak</p>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <div class="portfolio-image"></div>
+              <div class="portfolio-overlay">Women's Day</div>
+              <div class="portfolio-content">
+                <span class="portfolio-tag">Celebration</span>
+                <h3>Happy Women's Day</h3>
+                <p>Empowering design for women celebration</p>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <div class="portfolio-image"></div>
+              <div class="portfolio-overlay">Mothers Day Campaign</div>
+              <div class="portfolio-content">
+                <span class="portfolio-tag">Seasonal</span>
+                <h3>Happy Mothers Day</h3>
+                <p>Heartfelt tribute to motherhood</p>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <div class="portfolio-image"></div>
+              <div class="portfolio-overlay">Rights Campaign</div>
+              <div class="portfolio-content">
+                <span class="portfolio-tag">Social</span>
+                <h3>Human Rights Day</h3>
+                <p>Advocacy campaign for human rights awareness</p>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <div class="portfolio-image"></div>
+              <div class="portfolio-overlay">Freedom Campaign</div>
+              <div class="portfolio-content">
+                <span class="portfolio-tag">Cultural</span>
+                <h3>Freedom Day</h3>
+                <p>Celebration of freedom and liberty</p>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <div class="portfolio-image"></div>
+              <div class="portfolio-overlay">Workers Recognition</div>
+              <div class="portfolio-content">
+                <span class="portfolio-tag">Corporate</span>
+                <h3>Happy Workers Day</h3>
+                <p>Celebrating workforce excellence and inspiration</p>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <div class="portfolio-image"></div>
+              <div class="portfolio-overlay">Wellness Messaging</div>
+              <div class="portfolio-content">
+                <span class="portfolio-tag">Wellness</span>
+                <h3>Breast Cancer Awareness</h3>
+                <p>Health advocacy and awareness campaign</p>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <div class="portfolio-image"></div>
+              <div class="portfolio-overlay">Iconic Branding</div>
+              <div class="portfolio-content">
+                <span class="portfolio-tag">Branding</span>
+                <h3>Icon Meets Iconic</h3>
+                <p>Premium brand collaboration design</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-header">
+            <div class="section-number">03</div>
+            <div class="section-title">
+              <div class="divider"></div>
+              <h2>Concepts & Rebrands</h2>
+              <p>Strategic brand transformations and innovative campaigns</p>
+            </div>
+          </div>
+
+          <div class="portfolio-grid">
+            <div class="portfolio-item">
+              <div class="portfolio-image"></div>
+              <div class="portfolio-overlay">Airbnb Halloween</div>
+              <div class="portfolio-content">
+                <span class="portfolio-tag">Concept</span>
+                <h3>Airbnb Halloween</h3>
+                <p>Seasonal campaign rebrand for hospitality platform</p>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <div class="portfolio-image"></div>
+              <div class="portfolio-overlay">Heritage Edition</div>
+              <div class="portfolio-content">
+                <span class="portfolio-tag">Rebrand</span>
+                <h3>Heritage Edition Pizza</h3>
+                <p>Premium packaging and brand identity redesign</p>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <div class="portfolio-image"></div>
+              <div class="portfolio-overlay">Nando's Campaign</div>
+              <div class="portfolio-content">
+                <span class="portfolio-tag">Campaign</span>
+                <h3>Nando's Drip Campaign</h3>
+                <p>Bold and vibrant footwear collaboration design</p>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <div class="portfolio-image"></div>
+              <div class="portfolio-overlay">Luxury Lipstick</div>
+              <div class="portfolio-content">
+                <span class="portfolio-tag">Brand</span>
+                <h3>Aura Luxury Lipstick</h3>
+                <p>Premium cosmetics brand identity and packaging</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-header">
+            <div class="section-number">04</div>
+            <div class="section-title">
+              <div class="divider"></div>
+              <h2>Clients & Subsidiaries</h2>
+              <p>Trusted partners and successful brand collaborations</p>
+            </div>
+          </div>
+
+          <div class="clients-grid">
+            <div class="client-item">
+              <div class="client-logo"></div>
+              <div class="client-name">Billy Bakery</div>
+              <div class="client-desc">
+                Premium baked goods with complete brand identity design
+              </div>
+            </div>
+
+            <div class="client-item">
+              <div class="client-logo"></div>
+              <div class="client-name">JoyAgri</div>
+              <div class="client-desc">
+                Agricultural products - form to table perfected
+              </div>
+            </div>
+
+            <div class="client-item">
+              <div class="client-logo"></div>
+              <div class="client-name">WM Mpinda Foundation</div>
+              <div class="client-desc">
+                Nonprofit brand identity and communication design
+              </div>
+            </div>
+
+            <div class="client-item">
+              <div class="client-logo"></div>
+              <div class="client-name">Inqouza Hill Municipality</div>
+              <div class="client-desc">
+                Government branding and public communication systems
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="portfolio-cta">
+          <h2>Ready to Transform Your Brand?</h2>
+          <p>
+            Let's discuss how TNJ Media can help elevate your business with
+            innovative solutions
+          </p>
+          <a href="Contact" class="cta-button">Get Started Today</a>
         </section>
       </div>
     </main>
+
     <footer>
       <div class="footer-logo">
         <p>© Copyright - TNJ Media South Africa</p>
@@ -187,14 +864,6 @@
       </div>
     </footer>
 
-    <script>
-      function toggleSection(id) {
-        const section = document.getElementById(id);
-        section.style.display =
-          section.style.display === "flex" ? "none" : "flex";
-      }
-    </script>
+    <script src="script.js"></script>
   </body>
-
-  <script src="script.js"></script>
 </html>
